@@ -10,12 +10,17 @@ void setup()
     Fireworks[2] = new OddballParticle(150,200);
     Fireworks[3] = new OddballParticle(200,250);
     Fireworks[4] = new OddballParticle(150,300);
+    Fireworks[5] = new OddballParticle(0,100);
+    Fireworks[6] = new OddballParticle(50,50);
+    Fireworks[7] = new OddballParticle(100,100);
+    Fireworks[8] = new OddballParticle(0,0);
+    Fireworks[9] = new OddballParticle(100,0);
     Fireworks[1] = new JumboParticle();
   }
 }
 void draw()
 {
-  background(0);
+  background((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
   for (int i = 0; i < Fireworks.length; i++)
   {
     Fireworks[i].show();
@@ -28,11 +33,11 @@ class NormalParticle implements Particle
   int myColor;
   NormalParticle()
   {
-    myColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+    myColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255)); //epilpsey 101
     myX = 250;
     myY = 250;
-    mySpeed = (Math.random()*15);
-    myAngle = (Math.random()*(2*Math.PI));
+    mySpeed = (Math.random()*25);
+    myAngle = (Math.random()*(4*Math.PI));
   }
   public void move()
   {
@@ -42,7 +47,7 @@ class NormalParticle implements Particle
   public void show()
   {
     fill(myColor);
-    ellipse((float)myX,(float)myY,15,15);
+    ellipse((float) myX,(float) myY,15,15);
   }
 }
 void mousePressed()
@@ -54,6 +59,11 @@ void mousePressed()
     Fireworks[2] = new OddballParticle(150,200);
     Fireworks[3] = new OddballParticle(200,250);
     Fireworks[4] = new OddballParticle(150,300);
+    Fireworks[5] = new OddballParticle(0,100);
+    Fireworks[6] = new OddballParticle(50,50);
+    Fireworks[7] = new OddballParticle(100,100);
+    Fireworks[8] = new OddballParticle(0,0);
+    Fireworks[9] = new OddballParticle(100,0);    
     Fireworks[1] = new JumboParticle();
   }
   for(int i = 0; i < Fireworks.length; i ++)
@@ -67,7 +77,7 @@ interface Particle
   public void show();
   public void move();
 }
-class OddballParticle implements Particle//uses an interface
+class OddballParticle implements Particle
 {
   int myX2, myY2;
   OddballParticle(int x, int y)
@@ -86,13 +96,11 @@ class OddballParticle implements Particle//uses an interface
     rect(myX2,myY2,50,50);
   }
 }
-class JumboParticle extends NormalParticle//uses inheritance
+class JumboParticle extends NormalParticle
 {
   void show()
   {
-    fill(255,255,255);
+    fill(0);
     ellipse((float)myX,(float)myY,100,100);
   }
 }
-
-
